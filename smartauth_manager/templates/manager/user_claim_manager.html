@@ -1,0 +1,59 @@
+{% extends "ux/dashboard/modal.html" %}
+
+{% block modal_content %}
+<div class="ui basic segment grid">
+    <div class="four wide column">
+        {% if profile_picture %}
+        <img class="ui small image" src="{{ profile_picture }}">
+        {% else %}
+        <i class="huge user icon"></i>
+        {% endif %}
+    </div>
+    <div class="twelve wide column">
+        <div class="ui relaxed divided items">
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue info ribbon label header">Usuario: <div class="meta">{{ user.username }}</div></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="ui two column grid">
+                        <div class="column">
+                            <div class="item">
+                                <div class="content">
+                                    <div class="ui basic fluid blue info ribbon label header">Nombre: <div class="meta">{{ user.first_name }}</div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="item">
+                                <div class="content">
+                                    <div class="ui basic fluid blue info ribbon label header">Apellido: <div class="meta">{{ user.last_name }}</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue info ribbon label header">Correo electrónico: <div class="meta">{{ user.email }}</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui basic segment">
+    <div class="ui top attached tabular menu">
+    {% for code, claim in claims.items %}<a class="{% if forloop.first %}active {% endif %}item" data-tab="{{ code }}">{{ claim.description }}</a>{% endfor %}
+    </div>
+    {% for code, claim in claims.items %}
+    <div class="ui bottom attached {% if forloop.first %}active {% endif %}tab segment" data-tab="{{ code }}">
+        <form class="ui form" id="{{ code }}_form">
+            {{ claim.form }}
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock modal_content %}

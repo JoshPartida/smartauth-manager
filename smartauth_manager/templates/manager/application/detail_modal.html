@@ -1,0 +1,27 @@
+{% extends "ux/dashboard/modal.html" %}
+{% block modal_content %}
+{% if application %}
+<img class="ui small image content" src="{{ application.logo_image.url }}">
+<div class="description">
+    <div class="ui basic very padded segment">
+        <div class="ui relaxed divided items">
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue ribbon info label header">Clave: <div class="meta">{{ application.code }}</div></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue ribbon info label header">Descripción: <div class="meta">{{ application.description }}</div></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue ribbon info label header">Versión: <div class="meta">{{ application.version }}</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock modal_content %}

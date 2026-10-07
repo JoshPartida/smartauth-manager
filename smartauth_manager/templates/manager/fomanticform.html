@@ -1,0 +1,19 @@
+{% extends "ux/dashboard/content.html" %}
+
+{% block content_data %}
+    <form class="ui form" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+    </form>
+{% endblock content_data %}
+<script>
+{% block document_ready_code %}
+  $('.field .ui.selection.dropdown').dropdown();
+  $('.field .ui.checkbox').checkbox();
+  for (const [key, value] of Object.entries(field_values.dropdowns)) {
+    const dropdown = $(`input[name='${key}']`).closest('.selection.dropdown');
+    dropdown.dropdown('set selected', value);
+  }
+{% endblock document_ready_code  %}
+</script>

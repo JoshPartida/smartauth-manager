@@ -1,0 +1,38 @@
+{% extends "ux/dashboard/modal.html" %}
+{% block modal_content %}
+{% if user %}
+{% if profile_picture %}
+<img class="ui small image content" src="{{ profile_picture }}">
+{% else %}
+<div class="image"><i class="user blue icon"></i></div>
+{% endif %}
+<div class="description">
+    <div class="ui basic very padded segment">
+        <div class="ui relaxed divided items">
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic two column grid">
+                        <div class="column">
+                            <div class="ui basic fluid blue ribbon info label header">Nombre: <div class="meta">{{ user.first_name }}</div></div>
+                        </div>
+                        <div class="column">
+                            <div class="ui basic fluid blue ribbon info label header">Apellido: <div class="meta">{{ user.last_name }}</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue ribbon info label header">Correo: <div class="meta">{{ user.email }}</div></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="ui basic fluid blue ribbon info label header">Grupos: <div class="meta">{% for group in user.groups.all %}{{ group.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock modal_content %}

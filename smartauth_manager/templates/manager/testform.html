@@ -1,0 +1,139 @@
+{% extends "ux/dashboard/content.html" %}
+
+{% block content_data %}
+<div class="ui horizontal basic equal width segments">
+  <div class="ui segment">
+    <form class="ui form" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  {% comment %} <div class="ui segment">
+    <form class="ui form">
+      <div class="field">
+        <div class="ui toggle checkbox">
+          <label for="id_bool_field">Bool field:</label>
+          <input type="checkbox" name="bool_field" required="" id="id_bool_field">
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_char_field">Char field:</label>
+        <input type="text" name="char_field" required="" id="id_char_field">
+      </div>
+      <div class="field">
+        <label for="id_choice_field">Choice field:</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="choice_field" id="id_choice_field">
+          <i class="dropdown icon"></i>
+          <div class="default text">Choice field</div>
+          <div class="menu">
+            <div class="item" data-value="A1">A Uno</div>
+            <div class="item" data-value="A2">A Dos</div>
+            <div class="item" data-value="A3">A Tres</div>
+          </div>
+        </div>
+      </div>
+      {# Para campos calendar el valor default o preseleccionado va en data-date #}
+      <div class="field">
+        <label for="id_date_field">Date field:</label>
+        <div class="ui calendar" data-type="date">
+          <div class="ui left icon input">
+            <i class="calendar icon"></i>
+            <input type="text" name="date_field" required="" id="id_date_field" placeholder="Date field">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_datetime_field">Datetime field:</label>
+        <div class="ui calendar" data-type="datetime">
+          <div class="ui left icon input">
+            <i class="calendar icon"></i>
+            <input type="text" name="datetime_field" required="" id="id_datetime_field" placeholder="DateTime field">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_time_field">Time field:</label>
+        <div class="ui calendar" data-type="time">
+          <div class="ui left icon input">
+            <i class="clock icon"></i>
+            <input type="text" name="time_field" required="" id="id_time_field" placeholder="Time field">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_decimal_field">Decimal field:</label>
+        <input type="number" name="decimal_field" step="0.01" required="" id="id_decimal_field">
+      </div>
+      <div class="field">
+        <label for="id_email_field">Email field:</label>
+        <input type="email" name="email_field" maxlength="320" required="" id="id_email_field">
+      </div>
+      {# Crear otros widget para la personalización (file action o invisible input) #}
+      <div class="field">
+        <label for="id_file_field">File field:</label>
+        <div class="ui file input">
+          <input type="file" name="file_field" required="" id="id_file_field">
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_image_field">Image field:</label>
+        <div class="ui file input">
+          <input type="file" name="image_field" accept="image/*" required="" id="id_image_field">
+        </div>
+      </div>
+      <div class="field">
+        <label for="id_integer_field">Integer field:</label>
+        <input type="number" name="integer_field" required="" id="id_integer_field">
+      </div>
+      {# Para los multi, checar como se mandan y se parsean los valores #}
+      <div class="field">
+        <label for="id_multiselect_field">Multiselect field:</label>
+        <div class="ui multiple selection dropdown">
+          <input name="multiselect_field" required="" id="id_multiselect_field" type="hidden">
+          <i class="dropdown icon"></i>
+          <div class="default text">Multiselect field</div>
+          <div class="menu">
+            <div class="item" data-value="A1">A Uno</div>
+            <div class="item" data-value="A2">A Dos</div>
+            <div class="item" data-value="A3">A Tres</diV>
+          </div>
+        </div>
+      </div>
+      <div class="grouped fields">
+        <label>Multicheck field:</label>
+        <div class="ui checkbox">
+          <input type="checkbox" name="multicheck_field" value="A1" id="id_multicheck_field_0">
+          <label for="id_multicheck_field_0">A Uno</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="multicheck_field" value="A2" id="id_multicheck_field_1">
+          <label for="id_multicheck_field_1">A Dos</label>
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="multicheck_field" value="A3" id="id_multicheck_field_2">
+          <label for="id_multicheck_field_2">A Tres</label>
+        </div>
+      </div>
+      {# Ver validaciones especiales para estos #}
+      <div class="field">
+        <label for="id_regex_field">Regex field:</label>
+        <input type="text" name="regex_field" required="" id="id_regex_field">
+      </div>
+      <div class="field">
+        <label for="id_slug_field">Slug field:</label>
+        <input type="text" name="slug_field" required="" id="id_slug_field">
+      </div>
+      <div class="field">
+        <label for="id_url_field">Url field:</label>
+        <input type="url" name="url_field" required="" id="id_url_field">
+      </div>
+      <div class="field">
+        <label for="id_uuid_filed">Uuid filed:</label>
+        <input type="text" name="uuid_filed" required="" id="id_uuid_filed">
+      </div>
+    </form>
+  </div> {% endcomment %}
+</div>
+{% endblock content_data %}

@@ -1,0 +1,35 @@
+{% extends "ux/dashboard/content.html" %}
+
+{% block content_data %}
+<button class="ui primary button" {# onClick="uimodal('processing')" #}>Procesando</button>
+<div class="ui small processing modal">
+    <div class="header">Por favor espere...</div>
+    <div class="content">
+        <h1 class="ui block header">
+            <i class="loading cog icon"></i>
+            <div class="content">
+                Procesando...
+                <div class="sub header">
+                    Esto puede tardar unos minutos...
+                    Por favor sea paciente...
+                </div>
+            </div>
+        </h1>
+        <div class="ui blue indeterminate progress">
+            <div class="bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content_data %}
+<script>
+{% block inline_code %}
+    function uimodal(variant) {
+        $(`.ui.${variant}.modal`).modal({transition:'drop',closable:false}).modal('show');
+    }
+    $('.ui.primary.button').on('click', function(event) {
+        $.modal('processing', 'abc123', '', '', '');
+    });
+{% endblock inline_code %}
+</script>

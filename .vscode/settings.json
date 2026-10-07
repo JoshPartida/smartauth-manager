@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.html": "django-html",
+    "**/partials/*.js": "django-html"
+  }
+}

@@ -1,0 +1,13 @@
+{% extends "ux/dashboard/modal.html" %}
+
+{% block modal_content %}
+<form class="ui form">
+{{ form }}
+</form>
+{% endblock modal_content %}
+<script>
+{% block modal_code %}
+    document.querySelectorAll('div.file.dragdrop.zone').forEach((element) => initFileDragDrop(element, uploadKeyCallback));
+    {{ block.super }}
+{% endblock modal_code %}
+</script>
