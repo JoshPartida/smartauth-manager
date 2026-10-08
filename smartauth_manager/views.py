@@ -292,6 +292,9 @@ def get_public_key(private_key):
 class RsaKeyModalView(ModalView):
     icon = "fingerprint"
     name = "Llave RSA"
+    actions = [
+        ModuleAction(label="Copiar Llave Pública", target="copyPublicKeyToClipboard", target_type=ActionTargetType.FUNCTION, icon="copy", classes=["primary"]),
+    ]
     approve_action = ModuleAction(label="Guardar", target="saveKey", target_type=ActionTargetType.FUNCTION, icon="save", classes=["positive"])
     deny_action = ModuleAction(label="Regresar", icon="reply", classes=["negative"], target=None, target_type=None)
     template_name = "manager/rsakey_modal_form.html"

@@ -35,14 +35,14 @@ class RsaKeyForm(Form):
             self.fields["public_key"] = CharField(
                 label="Llave Pública", 
                 help_text="Llave pública correspondiente a la llave privada RSA", 
-                widget=forms.Textarea(attrs={"readonly":""}),
+                widget=widgets.Textarea(attrs={"readonly":""}),
                 required=False,
                 initial=data["public_key"],
             )
             self.fields["kid"] = CharField(
                 label="kid", 
                 help_text="Identificador de la llave", 
-                widget=forms.TextInput(attrs={"readonly":""}),
+                widget=widgets.TextInput(attrs={"readonly":""}),
                 required=False,
                 initial=data["kid"],
             )
